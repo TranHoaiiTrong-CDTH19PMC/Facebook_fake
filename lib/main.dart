@@ -3,11 +3,13 @@ import 'package:flutter/material.dart';
 void main() {
   runApp(const MyApp());
 }
+
 class ScreenArguments {
   final String title;
   final String message;
   ScreenArguments(this.title, this.message);
 }
+
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
   @override
@@ -15,17 +17,18 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(fontFamily: 'Roboto'),
-     initialRoute: '/',
+      initialRoute: '/',
       routes: {
         '/': (context) => trangchu(),
         SecondScreen.routeName: (context) => tranghai(),
         baScreen.routeName: (context) => trangba(),
-        profileState.routeName:(context)=>profile(),
-        SecurityState.routeName:(context)=>Security()
-      },      
+        profileState.routeName: (context) => profile(),
+        SecurityState.routeName: (context) => Security()
+      },
     );
   }
 }
+
 class trangchu extends StatefulWidget {
   @override
   FirstScreen createState() => FirstScreen();
@@ -41,7 +44,9 @@ class FirstScreen extends State<trangchu> {
           context: context,
           builder: (context) {
             return AlertDialog(
-              title: Text("Thông báo" ,),
+              title: Text(
+                "Thông báo",
+              ),
               content: Text("Bạn chưa nhập đầy đủ thông tin "),
               actions: <Widget>[
                 ElevatedButton(
@@ -200,55 +205,95 @@ class tranghai extends StatefulWidget {
   @override
   SecondScreen createState() => SecondScreen();
 }
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 class SecondScreen extends State<tranghai> {
   static const routeName = '/tranghai';
-String khoa="Hủy kết bạn",tuan="Hủy kết bạn",trong="Hủy kết bạn";
-String img2 =
-    'https://images.pexels.com/photos/1851164/pexels-photo-1851164.jpeg';
-String img3 =
-    'https://images.pexels.com/photos/733416/pexels-photo-733416.jpeg';
-String img4 =
-    'https://images.pexels.com/photos/208984/pexels-photo-208984.jpeg';
+  String khoa = "Hủy kết bạn", tuan = "Hủy kết bạn", trong = "Hủy kết bạn";
+  String img2 =
+      'https://images.pexels.com/photos/1851164/pexels-photo-1851164.jpeg';
+  String img3 =
+      'https://images.pexels.com/photos/733416/pexels-photo-733416.jpeg';
+  String img4 =
+      'https://images.pexels.com/photos/208984/pexels-photo-208984.jpeg';
 
-String img6 =
-    'https://images.pexels.com/photos/1056251/pexels-photo-1056251.jpeg';
-String img7 =
-    'https://images.pexels.com/photos/1056252/pexels-photo-1056252.jpeg';
+  String img6 =
+      'https://images.pexels.com/photos/1056251/pexels-photo-1056251.jpeg';
+  String img7 =
+      'https://images.pexels.com/photos/1056252/pexels-photo-1056252.jpeg';
 
-String img9 = 'https://images.pexels.com/photos/37401/dog-cute-pet.jpg';
-String img10 =
-    'https://images.pexels.com/photos/65928/dog-nose-snout-munsterlander-65928.jpeg';
-String img11 =
-    'https://images.pexels.com/photos/572861/pexels-photo-572861.jpeg';
+  String img9 = 'https://images.pexels.com/photos/37401/dog-cute-pet.jpg';
+  String img10 =
+      'https://images.pexels.com/photos/65928/dog-nose-snout-munsterlander-65928.jpeg';
+  String img11 =
+      'https://images.pexels.com/photos/572861/pexels-photo-572861.jpeg';
 
   @override
   Widget build(BuildContext context) {
-     Widget hang1=Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: [
-            const DrawerHeader(
+    Widget hang1 = Drawer(
+      child: ListView(
+        children: [
+          SizedBox(
+            height: 110,
+            child: DrawerHeader(
+              padding: EdgeInsets.fromLTRB(85, 40, 0, 25),
               decoration: BoxDecoration(
-                color: Colors.blue,
+                color: Colors.indigo,
               ),
-              child: Text('Drawer Header'),
+              child: Text('Thông Tin',
+                  style: TextStyle(
+                      fontSize: 25,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white)),
             ),
-          
-           Text("Anh khoa")
-          ],
-        ),
-      );
-      Widget hang3=Center(
-          child: Column(children: [
-        ElevatedButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          child: const Text('Try again'),
-        ),
-      ]));
-      Widget home1 = Container(
+          ),
+          ListTile(
+            leading: Icon(Icons.people),
+            title: const Text('Profile',
+                style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold)),
+            onTap: () {
+              ScreenArguments ms =
+                  ScreenArguments('Chúc mừng', 'Đăng nhập thành công');
+              Navigator.pushNamed(context, profileState.routeName,
+                  arguments: ms);
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.settings),
+            title: const Text(
+              'Security',
+              style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+            ),
+            onTap: () {
+              ScreenArguments ms =
+                  ScreenArguments('Chúc mừng', 'Đăng nhập thành công');
+              Navigator.pushNamed(context, SecurityState.routeName,
+                  arguments: ms);
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.logout),
+            title: const Text('Log out',
+                style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold)),
+            onTap: () {
+              ScreenArguments ms =
+                  ScreenArguments('Chúc mừng', 'Đăng nhập thành công');
+              Navigator.pushNamed(context, '/', arguments: ms);
+            },
+          ),
+        ],
+      ),
+    );
+    Widget hang3 = Center(
+        child: Column(children: [
+      ElevatedButton(
+        onPressed: () {
+          Navigator.pop(context);
+        },
+        child: const Text('Try again'),
+      ),
+    ]));
+    Widget home1 = Container(
         padding: EdgeInsets.fromLTRB(0, 10, 0, 10),
         child: ListView(
           children: [
@@ -607,41 +652,36 @@ String img11 =
             ),
           ],
         ));
-      
-   
-    Widget hang2=DefaultTabController(
-        length: 3,
-        child: Scaffold(
-          appBar: AppBar(
-            bottom: const TabBar(
-              tabs: [
-                Tab(icon: Icon(Icons.home)),
-                Tab(icon: Icon(Icons.people)),
-                Tab(icon: Icon(Icons.notifications)),
-              ],
-            ),
-            title:  Text('Tabs Demo'),
-          ),
-          body:  TabBarView(
-            children: [
-              home1,
-              Text("Hoài trọng"),
-              Text("Hoài trọng")
+
+    Widget hang2 = DefaultTabController(
+      length: 3,
+      child: Scaffold(
+        appBar: AppBar(
+          bottom: const TabBar(
+            tabs: [
+              Tab(icon: Icon(Icons.home)),
+              Tab(icon: Icon(Icons.people)),
+              Tab(icon: Icon(Icons.notifications)),
             ],
           ),
-          drawer: hang1,
+          title: Text('Tabs Demo'),
         ),
-      );
-           final args = ModalRoute.of(context)!.settings.arguments as ScreenArguments;
-    return MaterialApp(
-      home:hang2   
+        body: TabBarView(
+          children: [home1, Text("Hoài trọng"), Text("Hoài trọng")],
+        ),
+        drawer: hang1,
+      ),
     );
+    final args = ModalRoute.of(context)!.settings.arguments as ScreenArguments;
+    return MaterialApp(home: hang2);
   }
 }
+
 class trangba extends StatefulWidget {
   @override
   baScreen createState() => baScreen();
 }
+
 class baScreen extends State<trangba> {
   static const routeName = '/trangba';
   @override
@@ -670,79 +710,120 @@ class profile extends StatefulWidget {
   @override
   profileState createState() => profileState();
 }
+
 class profileState extends State<profile> {
-   static const routeName = '/profileState';
+  static const routeName = '/profileState';
   @override
   Widget build(BuildContext context) {
-    Widget hang1=Container(
-      padding: EdgeInsets.fromLTRB(0, 10, 10, 10),
-      child: Column(crossAxisAlignment: CrossAxisAlignment.start,
-       children: [
-        Text("Đặng Quang Vinh"),
-        Text("Ngày Sinh: 3/10/2001"),
-        Text("Địa chỉ Email: dangquangvinh@gmail.com")
-      ],),
-    );
-     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Đặng quang vinh'),
-      ),
-      body:Column(
+    Widget hang1 = Container(
+      padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          hang1,
-         Center(
-          child: Column(children: [
-        ElevatedButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          child: const Text('Try again'),
-        ),
-      ])),
+          /*  Text("Đặng Quang Vinh"),
+          Text("Ngày Sinh: 3/10/2001"),
+          Text("Địa chỉ Email: dangquangvinh@gmail.com"),*/
+          ListTile(
+            leading: Icon(Icons.people),
+            title: Text("Đặng Quang Vinh"),
+            trailing: Icon(Icons.chevron_right),
+          ),
+          ListTile(
+            leading: Icon(Icons.date_range),
+            title: Text("20/11/2001"),
+            trailing: Icon(Icons.chevron_right),
+          ),
+          ListTile(
+            leading: Icon(Icons.email),
+            title: Text("dangquangvinh@gmail.com"),
+            trailing: Icon(Icons.chevron_right),
+          ),
+          ListTile(
+            leading: Icon(Icons.phone),
+            title: Text('0306191292'),
+            trailing: Icon(Icons.chevron_right),
+          )
         ],
-        ) 
+      ),
     );
+    return Scaffold(
+        appBar: AppBar(
+          title: const Text('Account'),
+          backgroundColor: Colors.indigo,
+        ),
+        body: Column(
+          children: [
+            hang1,
+            Center(child: Column(children: [])),
+          ],
+        ));
   }
-
 }
+
 class Security extends StatefulWidget {
   @override
   SecurityState createState() => SecurityState();
 }
+
 class SecurityState extends State<Security> {
-   static const routeName = '/SecurityState';
+  static const routeName = '/SecurityState';
   @override
   Widget build(BuildContext context) {
-    Widget hang1=Container(
+    Widget hang1 = Container(
       padding: EdgeInsets.fromLTRB(0, 10, 10, 10),
-      child: Column(crossAxisAlignment: CrossAxisAlignment.start,
-       children: [
-        Text("Cài Đặt"),
-        Text("Kiểm tra quyền riêng tư"),
-        Text("Chính sách quyền riêng tư"),
-        Text("Đổi mật khẩu"),
-        Text("Thêm số điện thoại"),
-        Text("Thêm Email")
-      ],),
-    );
-     return Scaffold(
-      appBar: AppBar(
-        title: const Text('SEcurity'),
-      ),
-      body:Column(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          hang1,
-         Center(
-          child: Column(children: [
-        ElevatedButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          child: const Text('Try again'),
-        ),
-      ])),
+          /*
+          Text("Cài Đặt"),
+          Text("Kiểm tra quyền riêng tư"),
+          Text("Chính sách quyền riêng tư"),
+          Text("Đổi mật khẩu"),
+          Text("Thêm số điện thoại"),
+          Text("Thêm Email")*/
+          ListTile(
+            leading: Icon(Icons.settings),
+            title: Text("Cài Đặt"),
+            trailing: Icon(Icons.chevron_right),
+          ),
+          ListTile(
+            leading: Icon(Icons.lock),
+            title: Text("Kiểm tra quyền riêng tư"),
+            trailing: Icon(Icons.chevron_right),
+          ),
+          ListTile(
+            leading: Icon(Icons.library_books),
+            title: Text("Chính sách quyền riêng tư"),
+            trailing: Icon(Icons.chevron_right),
+          ),
+          ListTile(
+            leading: Icon(Icons.sync_problem),
+            title: Text("Đổi mật khẩu"),
+            trailing: Icon(Icons.chevron_right),
+          ),
+          ListTile(
+            leading: Icon(Icons.call),
+            title: Text('Thêm số điện thoại'),
+            trailing: Icon(Icons.chevron_right),
+          ),
+          ListTile(
+            leading: Icon(Icons.email),
+            title: Text('Thêm email'),
+            trailing: Icon(Icons.chevron_right),
+          ),
         ],
-        ) 
+      ),
     );
+    return Scaffold(
+        appBar: AppBar(
+          title: Text('Security'),
+          backgroundColor: Colors.indigo,
+        ),
+        body: Column(
+          children: [
+            hang1,
+            Center(child: Column(children: [])),
+          ],
+        ));
   }
 }
