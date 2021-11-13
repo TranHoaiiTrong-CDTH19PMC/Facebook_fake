@@ -15,8 +15,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
       theme: ThemeData(fontFamily: 'Roboto'),
+      title: 'FaceBook Fake',
+      debugShowCheckedModeBanner: false,
       initialRoute: '/',
       routes: {
         '/': (context) => trangchu(),
@@ -44,9 +45,7 @@ class FirstScreen extends State<trangchu> {
           context: context,
           builder: (context) {
             return AlertDialog(
-              title: Text(
-                "Thông báo",
-              ),
+              title: Text("Thông báo"),
               content: Text("Bạn chưa nhập đầy đủ thông tin "),
               actions: <Widget>[
                 ElevatedButton(
@@ -201,6 +200,24 @@ class FirstScreen extends State<trangchu> {
   }
 }
 
+String img2 =
+    'https://images.pexels.com/photos/1851164/pexels-photo-1851164.jpeg';
+String img3 =
+    'https://images.pexels.com/photos/733416/pexels-photo-733416.jpeg';
+String img4 =
+    'https://images.pexels.com/photos/208984/pexels-photo-208984.jpeg';
+
+String img6 =
+    'https://images.pexels.com/photos/1056251/pexels-photo-1056251.jpeg';
+String img7 =
+    'https://images.pexels.com/photos/1056252/pexels-photo-1056252.jpeg';
+
+String img9 = 'https://images.pexels.com/photos/37401/dog-cute-pet.jpg';
+String img10 =
+    'https://images.pexels.com/photos/65928/dog-nose-snout-munsterlander-65928.jpeg';
+String img11 =
+    'https://images.pexels.com/photos/572861/pexels-photo-572861.jpeg';
+
 class tranghai extends StatefulWidget {
   @override
   SecondScreen createState() => SecondScreen();
@@ -209,25 +226,10 @@ class tranghai extends StatefulWidget {
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 class SecondScreen extends State<tranghai> {
   static const routeName = '/tranghai';
-  String khoa = "Hủy kết bạn", tuan = "Hủy kết bạn", trong = "Hủy kết bạn";
-  String img2 =
-      'https://images.pexels.com/photos/1851164/pexels-photo-1851164.jpeg';
-  String img3 =
-      'https://images.pexels.com/photos/733416/pexels-photo-733416.jpeg';
-  String img4 =
-      'https://images.pexels.com/photos/208984/pexels-photo-208984.jpeg';
-
-  String img6 =
-      'https://images.pexels.com/photos/1056251/pexels-photo-1056251.jpeg';
-  String img7 =
-      'https://images.pexels.com/photos/1056252/pexels-photo-1056252.jpeg';
-
-  String img9 = 'https://images.pexels.com/photos/37401/dog-cute-pet.jpg';
-  String img10 =
-      'https://images.pexels.com/photos/65928/dog-nose-snout-munsterlander-65928.jpeg';
-  String img11 =
-      'https://images.pexels.com/photos/572861/pexels-photo-572861.jpeg';
-
+  String khoa = "Hủy kết bạn",
+      tuan = "Hủy kết bạn",
+      trong = "Hủy kết bạn",
+      vinh = "Hủy kết bạn";
   @override
   Widget build(BuildContext context) {
     Widget hang1 = Drawer(
@@ -290,7 +292,7 @@ class SecondScreen extends State<tranghai> {
         onPressed: () {
           Navigator.pop(context);
         },
-        child: const Text('Try again'),
+        child: const Text('Quay lại'),
       ),
     ]));
     Widget home1 = Container(
@@ -652,6 +654,506 @@ class SecondScreen extends State<tranghai> {
             ),
           ],
         ));
+    Widget people = Container(
+      padding: EdgeInsets.fromLTRB(0, 10, 0, 10),
+      child: Container(
+        color: Colors.green[100],
+        child: ListView(
+          children: [
+            Container(
+              width: MediaQuery.of(context).size.width,
+              padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
+              child: Card(
+                elevation: 5.0,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(0.0),
+                ),
+                child: Container(
+                  width: MediaQuery.of(context).size.width,
+                  padding:
+                      EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: <Widget>[
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: <Widget>[
+                          Container(
+                            width: 55.0,
+                            height: 55.0,
+                            child: CircleAvatar(
+                              backgroundColor: Colors.green,
+                              foregroundColor: Colors.green,
+                              backgroundImage: NetworkImage(img3),
+                            ),
+                          ),
+                          SizedBox(width: 6.0),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Text("Đặng Quang Vinh",
+                                  style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold)),
+                              SizedBox(height: 5.0),
+                              Text("20 bạn chung",
+                                  style: TextStyle(color: Colors.grey)),
+                            ],
+                          ),
+                        ],
+                      ),
+                      Container(
+                        alignment: Alignment.center,
+                        padding: EdgeInsets.symmetric(
+                            horizontal: 10.0, vertical: 10.0),
+                        child: FlatButton(
+                          child: Text(vinh),
+                          onPressed: () {
+                            if (vinh == "Thêm bạn bè") {
+                              vinh = "Huỷ kết bạn";
+                            } else {
+                              vinh = "Thêm bạn bè";
+                            }
+                            setState(() {});
+                          },
+                          color: Colors.red[200],
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            Container(
+              width: MediaQuery.of(context).size.width,
+              padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
+              child: Card(
+                elevation: 5.0,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(0.0),
+                ),
+                child: Container(
+                  width: MediaQuery.of(context).size.width,
+                  padding:
+                      EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: <Widget>[
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: <Widget>[
+                          Container(
+                            width: 55.0,
+                            height: 55.0,
+                            child: CircleAvatar(
+                              backgroundColor: Colors.green,
+                              foregroundColor: Colors.green,
+                              backgroundImage: NetworkImage(img2),
+                            ),
+                          ),
+                          SizedBox(width: 6.0),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Text("Nguyễn Anh Khoa",
+                                  style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold)),
+                              SizedBox(height: 5.0),
+                              Text("20 bạn chung",
+                                  style: TextStyle(color: Colors.grey)),
+                            ],
+                          ),
+                        ],
+                      ),
+                      Container(
+                        alignment: Alignment.center,
+                        padding: EdgeInsets.symmetric(
+                            horizontal: 10.0, vertical: 10.0),
+                        child: FlatButton(
+                          child: Text(khoa),
+                          onPressed: () {
+                            if (khoa == "Thêm bạn bè") {
+                              khoa = "Huỷ kết bạn";
+                            } else {
+                              khoa = "Thêm bạn bè";
+                            }
+                            setState(() {});
+                          },
+                          color: Colors.red[200],
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            Container(
+              width: MediaQuery.of(context).size.width,
+              padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
+              child: Card(
+                elevation: 5.0,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(0.0),
+                ),
+                child: Container(
+                  width: MediaQuery.of(context).size.width,
+                  padding:
+                      EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: <Widget>[
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: <Widget>[
+                          Container(
+                            width: 55.0,
+                            height: 55.0,
+                            child: CircleAvatar(
+                              backgroundColor: Colors.green,
+                              foregroundColor: Colors.green,
+                              backgroundImage: NetworkImage(img4),
+                            ),
+                          ),
+                          SizedBox(width: 6.0),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Text("Nguyễn Quốc Tuấn",
+                                  style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold)),
+                              SizedBox(height: 5.0),
+                              Text("77 bạn chung",
+                                  style: TextStyle(color: Colors.grey)),
+                            ],
+                          ),
+                        ],
+                      ),
+                      Container(
+                        alignment: Alignment.center,
+                        padding: EdgeInsets.symmetric(
+                            horizontal: 10.0, vertical: 10.0),
+                        child: FlatButton(
+                          child: Text(tuan),
+                          onPressed: () {
+                            if (tuan == "Thêm bạn bè") {
+                              tuan = "Huỷ kết bạn";
+                            } else {
+                              tuan = "Thêm bạn bè";
+                            }
+                            setState(() {});
+                          },
+                          color: Colors.red[200],
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            Container(
+              width: MediaQuery.of(context).size.width,
+              padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
+              child: Card(
+                elevation: 5.0,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(0.0),
+                ),
+                child: Container(
+                  width: MediaQuery.of(context).size.width,
+                  padding:
+                      EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: <Widget>[
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: <Widget>[
+                          Container(
+                            width: 55.0,
+                            height: 55.0,
+                            child: CircleAvatar(
+                              backgroundColor: Colors.green,
+                              foregroundColor: Colors.green,
+                              backgroundImage: NetworkImage(img7),
+                            ),
+                          ),
+                          SizedBox(width: 6.0),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Text("Trần Hoài Trọng",
+                                  style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold)),
+                              SizedBox(height: 5.0),
+                              Text("45 bạn chung",
+                                  style: TextStyle(color: Colors.grey)),
+                            ],
+                          ),
+                        ],
+                      ),
+                      Container(
+                        alignment: Alignment.center,
+                        padding: EdgeInsets.symmetric(
+                            horizontal: 10.0, vertical: 10.0),
+                        child: FlatButton(
+                          child: Text(trong),
+                          onPressed: () {
+                            if (trong == "Thêm bạn bè") {
+                              trong = "Huỷ kết bạn";
+                            } else {
+                              trong = "Thêm bạn bè";
+                            }
+                            setState(() {});
+                          },
+                          color: Colors.red[200],
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            Container(
+              width: MediaQuery.of(context).size.width,
+              padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
+              child: Card(
+                elevation: 5.0,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(0.0),
+                ),
+                child: Container(
+                  width: MediaQuery.of(context).size.width,
+                  padding:
+                      EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: <Widget>[
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: <Widget>[
+                          Container(
+                            width: 55.0,
+                            height: 55.0,
+                            child: CircleAvatar(
+                              backgroundColor: Colors.green,
+                              foregroundColor: Colors.green,
+                              backgroundImage: NetworkImage(img9),
+                            ),
+                          ),
+                          SizedBox(width: 6.0),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Text("Huỳnh Công Hậu",
+                                  style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold)),
+                              SizedBox(height: 5.0),
+                              Text("1 bạn chung",
+                                  style: TextStyle(color: Colors.grey)),
+                            ],
+                          ),
+                        ],
+                      ),
+                      Container(
+                        alignment: Alignment.center,
+                        padding: EdgeInsets.symmetric(
+                            horizontal: 10.0, vertical: 10.0),
+                        child: FlatButton(
+                          child: Text(khoa),
+                          onPressed: () {
+                            if (khoa == "Thêm bạn bè") {
+                              khoa = "Huỷ kết bạn";
+                            } else {
+                              khoa = "Thêm bạn bè";
+                            }
+                            setState(() {});
+                          },
+                          color: Colors.red[200],
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            Container(
+              width: MediaQuery.of(context).size.width,
+              padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
+              child: Card(
+                elevation: 5.0,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(0.0),
+                ),
+                child: Container(
+                  width: MediaQuery.of(context).size.width,
+                  padding:
+                      EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: <Widget>[
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: <Widget>[
+                          Container(
+                            width: 55.0,
+                            height: 55.0,
+                            child: CircleAvatar(
+                              backgroundColor: Colors.green,
+                              foregroundColor: Colors.green,
+                              backgroundImage: NetworkImage(img10),
+                            ),
+                          ),
+                          SizedBox(width: 6.0),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Text("Võ thị Panda",
+                                  style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold)),
+                              SizedBox(height: 5.0),
+                              Text("100 bạn chung",
+                                  style: TextStyle(color: Colors.grey)),
+                            ],
+                          ),
+                        ],
+                      ),
+                      Container(
+                        alignment: Alignment.center,
+                        padding: EdgeInsets.symmetric(
+                            horizontal: 10.0, vertical: 10.0),
+                        child: FlatButton(
+                          child: Text(khoa),
+                          onPressed: () {
+                            if (khoa == "Thêm bạn bè") {
+                              khoa = "Huỷ kết bạn";
+                            } else {
+                              khoa = "Thêm bạn bè";
+                            }
+                            setState(() {});
+                          },
+                          color: Colors.red[200],
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            Container(
+              width: MediaQuery.of(context).size.width,
+              padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
+              child: Card(
+                elevation: 5.0,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(0.0),
+                ),
+                child: Container(
+                  width: MediaQuery.of(context).size.width,
+                  padding:
+                      EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: <Widget>[
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: <Widget>[
+                          Container(
+                            width: 55.0,
+                            height: 55.0,
+                            child: CircleAvatar(
+                              backgroundColor: Colors.green,
+                              foregroundColor: Colors.green,
+                              backgroundImage: NetworkImage(img11),
+                            ),
+                          ),
+                          SizedBox(width: 6.0),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Text("Đặng Anh Trọng",
+                                  style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold)),
+                              SizedBox(height: 5.0),
+                              Text("5 bạn chung",
+                                  style: TextStyle(color: Colors.grey)),
+                            ],
+                          ),
+                        ],
+                      ),
+                      Container(
+                        alignment: Alignment.center,
+                        padding: EdgeInsets.symmetric(
+                            horizontal: 10.0, vertical: 10.0),
+                        child: FlatButton(
+                          child: Text(khoa),
+                          onPressed: () {
+                            if (khoa == "Thêm bạn bè") {
+                              khoa = "Huỷ kết bạn";
+                            } else {
+                              khoa = "Thêm bạn bè";
+                            }
+                            setState(() {});
+                          },
+                          color: Colors.red[200],
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(5),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
 
     Widget hang2 = DefaultTabController(
       length: 3,
@@ -664,16 +1166,444 @@ class SecondScreen extends State<tranghai> {
               Tab(icon: Icon(Icons.notifications)),
             ],
           ),
-          title: Text('Tabs Demo'),
+          title: Text('FaceBook'),
+          backgroundColor: Colors.indigo,
         ),
         body: TabBarView(
-          children: [home1, Text("Hoài trọng"), Text("Hoài trọng")],
+          children: [
+            home1,
+            people,
+            Container(
+              child: ListView(
+                children: [
+                  Container(
+                    color: Colors.indigo[100],
+                    padding: EdgeInsets.fromLTRB(0, 5, 0, 5),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          children: [
+                            Container(
+                              height: 80,
+                              width: 80,
+                              padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
+                              child: CircleAvatar(
+                                backgroundImage: NetworkImage(img6),
+                              ),
+                            ),
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Row(
+                                    children: [
+                                      Container(
+                                        padding: EdgeInsets.only(top: 10),
+                                        child: Text(
+                                          "Ninh Dương Lan Ngọc",
+                                          style: TextStyle(
+                                              fontSize: 17,
+                                              color: Colors.black,
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                      ),
+                                      Container(
+                                        padding:
+                                            EdgeInsets.fromLTRB(5, 10, 0, 0),
+                                        child: Text(
+                                          'đã bày tỏ',
+                                          style: TextStyle(fontSize: 16),
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                  Container(
+                                    padding: EdgeInsets.only(top: 5),
+                                    child: Text(
+                                      'cảm xúc về một bài viết của bạn.',
+                                      style: TextStyle(fontSize: 16),
+                                    ),
+                                  ),
+                                  Text(
+                                    "45 phút",
+                                    style: TextStyle(
+                                      color: Colors.grey[500],
+                                      fontSize: 12,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Container(
+                              padding: EdgeInsets.only(right: 10),
+                              child: Icon(
+                                Icons.more_horiz,
+                                color: Colors.black,
+                              ),
+                            )
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                  Container(
+                    padding: EdgeInsets.fromLTRB(0, 5, 0, 5),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          children: [
+                            Container(
+                              height: 80,
+                              width: 80,
+                              padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
+                              child: CircleAvatar(
+                                backgroundImage: NetworkImage(img2),
+                              ),
+                            ),
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Row(
+                                    children: [
+                                      Container(
+                                        padding: EdgeInsets.only(top: 10),
+                                        child: Text(
+                                          "Đặng Quang Vinh",
+                                          style: TextStyle(
+                                              fontSize: 17,
+                                              color: Colors.black,
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                      ),
+                                      Container(
+                                        padding:
+                                            EdgeInsets.fromLTRB(5, 10, 0, 0),
+                                        child: Text(
+                                          'đã gắn thẻ bạn',
+                                          style: TextStyle(fontSize: 16),
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                  Container(
+                                    padding: EdgeInsets.only(top: 5),
+                                    child: Text(
+                                      'trong một bài viết. Xem lại ngay.',
+                                      style: TextStyle(fontSize: 16),
+                                    ),
+                                  ),
+                                  Text(
+                                    "2 giờ",
+                                    style: TextStyle(
+                                      color: Colors.grey[500],
+                                      fontSize: 12,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Container(
+                              padding: EdgeInsets.only(right: 10),
+                              child: Icon(
+                                Icons.more_horiz,
+                                color: Colors.black,
+                              ),
+                            )
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                  Container(
+                    color: Colors.indigo[100],
+                    padding: EdgeInsets.fromLTRB(0, 5, 0, 5),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          children: [
+                            Container(
+                              height: 80,
+                              width: 80,
+                              padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
+                              child: CircleAvatar(
+                                backgroundImage: NetworkImage(img3),
+                              ),
+                            ),
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Row(
+                                    children: [
+                                      Container(
+                                        padding: EdgeInsets.only(top: 10),
+                                        child: Text(
+                                          "Nguyễn Anh Khoa",
+                                          style: TextStyle(
+                                              fontSize: 17,
+                                              color: Colors.black,
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                      ),
+                                      Container(
+                                        padding:
+                                            EdgeInsets.fromLTRB(5, 10, 0, 0),
+                                        child: Text(
+                                          'đã bình luận về',
+                                          style: TextStyle(fontSize: 16),
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                  Container(
+                                    padding: EdgeInsets.only(top: 5),
+                                    child: Text(
+                                      'một liên kết mà bạn được gắn thẻ.',
+                                      style: TextStyle(fontSize: 16),
+                                    ),
+                                  ),
+                                  Text(
+                                    "3 giờ",
+                                    style: TextStyle(
+                                      color: Colors.grey[500],
+                                      fontSize: 12,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Container(
+                              padding: EdgeInsets.only(right: 10),
+                              child: Icon(
+                                Icons.more_horiz,
+                                color: Colors.black,
+                              ),
+                            )
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                  Container(
+                    color: Colors.indigo[100],
+                    padding: EdgeInsets.fromLTRB(0, 5, 0, 5),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          children: [
+                            Container(
+                              height: 80,
+                              width: 80,
+                              padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
+                              child: CircleAvatar(
+                                backgroundImage: NetworkImage(img4),
+                              ),
+                            ),
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Row(
+                                    children: [
+                                      Container(
+                                        padding: EdgeInsets.only(top: 10),
+                                        child: Text(
+                                          "Trần Hoài Trọng",
+                                          style: TextStyle(
+                                              fontSize: 17,
+                                              color: Colors.black,
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                      ),
+                                      Container(
+                                        padding:
+                                            EdgeInsets.fromLTRB(5, 10, 0, 0),
+                                        child: Text(
+                                          'đã thêm 7 ảnh mới.',
+                                          style: TextStyle(fontSize: 16),
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                  Text(
+                                    "1 ngày",
+                                    style: TextStyle(
+                                      color: Colors.grey[500],
+                                      fontSize: 12,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Container(
+                              padding: EdgeInsets.only(right: 10),
+                              child: Icon(
+                                Icons.more_horiz,
+                                color: Colors.black,
+                              ),
+                            )
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                  Container(
+                    padding: EdgeInsets.fromLTRB(0, 5, 0, 5),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          children: [
+                            Container(
+                              height: 80,
+                              width: 80,
+                              padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
+                              child: CircleAvatar(
+                                backgroundImage: NetworkImage(img7),
+                              ),
+                            ),
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Row(
+                                    children: [
+                                      Container(
+                                        padding: EdgeInsets.only(top: 10),
+                                        child: Text(
+                                          "Nguyễn Quốc Tuấn",
+                                          style: TextStyle(
+                                              fontSize: 17,
+                                              color: Colors.black,
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                      ),
+                                      Container(
+                                        padding:
+                                            EdgeInsets.fromLTRB(5, 10, 0, 0),
+                                        child: Text(
+                                          'đã chia sẽ',
+                                          style: TextStyle(fontSize: 16),
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                  Container(
+                                    padding: EdgeInsets.only(top: 5),
+                                    child: Text(
+                                      'bài viết của TRÙM PHIM.',
+                                      style: TextStyle(fontSize: 16),
+                                    ),
+                                  ),
+                                  Text(
+                                    "2 ngày",
+                                    style: TextStyle(
+                                      color: Colors.grey[500],
+                                      fontSize: 12,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Container(
+                              padding: EdgeInsets.only(right: 10),
+                              child: Icon(
+                                Icons.more_horiz,
+                                color: Colors.black,
+                              ),
+                            )
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                  Container(
+                    color: Colors.indigo[100],
+                    padding: EdgeInsets.fromLTRB(0, 5, 0, 5),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          children: [
+                            Container(
+                              height: 80,
+                              width: 80,
+                              padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
+                              child: CircleAvatar(
+                                backgroundImage: NetworkImage(img9),
+                              ),
+                            ),
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Row(
+                                    children: [
+                                      Container(
+                                        padding: EdgeInsets.only(top: 10),
+                                        child: Text(
+                                          "Huỳnh Công Hậu",
+                                          style: TextStyle(
+                                              fontSize: 17,
+                                              color: Colors.black,
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                      ),
+                                      Container(
+                                        padding:
+                                            EdgeInsets.fromLTRB(5, 10, 0, 0),
+                                        child: Text(
+                                          'đã bị cắm sừng',
+                                          style: TextStyle(fontSize: 16),
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                  Container(
+                                    padding: EdgeInsets.only(top: 5),
+                                    child: Text(
+                                      'mau vào ghẹo ngay nào.',
+                                      style: TextStyle(fontSize: 16),
+                                    ),
+                                  ),
+                                  Text(
+                                    "1 tuần",
+                                    style: TextStyle(
+                                      color: Colors.grey[500],
+                                      fontSize: 12,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Container(
+                              padding: EdgeInsets.only(right: 10),
+                              child: Icon(
+                                Icons.more_horiz,
+                                color: Colors.black,
+                              ),
+                            )
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            )
+          ],
         ),
         drawer: hang1,
       ),
     );
     final args = ModalRoute.of(context)!.settings.arguments as ScreenArguments;
-    return MaterialApp(home: hang2);
+
+    return MaterialApp(debugShowCheckedModeBanner: false, home: hang2);
   }
 }
 
@@ -690,6 +1620,7 @@ class baScreen extends State<trangba> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Đăng nhập thất bại'),
+        backgroundColor: Colors.indigo,
       ),
       body: Center(
           child: Column(children: [
