@@ -223,7 +223,6 @@ class tranghai extends StatefulWidget {
   SecondScreen createState() => SecondScreen();
 }
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////
 class SecondScreen extends State<tranghai> {
   static const routeName = '/tranghai';
   String khoa = "Hủy kết bạn",
